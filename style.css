@@ -1,0 +1,261 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* background: linear-gradient(850deg, rgb(82, 26, 241), rgb(0, 252, 213)); */
+    animation: bg-animation 20s infinite alternate;
+    background-image: var(--gradient);
+    background-size: 400%;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+:root {
+    --gradient: linear-gradient( 45deg, #845ec2, #d65db1, #ff6f91, #ff9671, #ffc75f, #f9f871);
+    /* --radial: radial-gradient( circle farthest-corner at 10% 20%, rgba(222, 168, 248, 1) 0%, rgba(168, 222, 248, 1) 21.8%, rgba(189, 250, 205, 1) 35.6%, rgba(243, 250, 189, 1) 52.9%, rgba(250, 227, 189, 1) 66.8%, rgba(248, 172, 172, 1) 90%, rgba(254, 211, 252, 1) 99.7%); */
+    /* --radial: radial-gradient( circle farthest-corner at 10% 20%, rgba(252, 85, 85, 1) 1.7%, rgba(249, 194, 132, 1) 19%, rgba(205, 251, 150, 1) 35.3%, rgba(246, 248, 155, 1) 52.2%, rgba(164, 251, 247, 1) 68.1%, rgba(183, 185, 252, 1) 82.4%, rgba(253, 176, 194, 0.96) 93.2%); */
+    /* --linear: linear-gradient( 90deg, rgba(2, 250, 70, 1) -1.7%, rgba(2, 238, 250, 1) 21.1%, rgba(174, 8, 237, 1) 46%, rgba(237, 8, 117, 1) 64.2%, rgba(237, 8, 117, 1) 81%, rgba(248, 136, 0, 1) 97.2%); */
+}
+
+.menu {
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em 1.5em;
+    background-image: var(--gradient);
+    background-size: 300%;
+    /* background-position: left 30% top 50% fixed; */
+    transition: background-position 1s;
+    position: fixed;
+    margin-left: 90%;
+    margin-top: 10%;
+}
+
+.menu:focus {
+    background-position: right;
+}
+
+.menu:hover {
+    color: whitesmoke;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section::before {
+    content: attr(data-text);
+    color: whitesmoke;
+    font-size: 2em;
+    /* border: #a28089 solid 1vh; */
+    margin: 5px;
+}
+
+section p {
+    font-size: 1em;
+    text-align: right;
+    margin: 20%;
+    /* border: #8d46d9 solid 1vh; */
+}
+
+ul {
+    width: 100%;
+    /* background: radial-gradient(pink, coral, grey); */
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    letter-spacing: 1rem;
+    display: flex;
+    justify-content: space-around;
+    word-spacing: 5em;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    /* color: black; */
+    line-height: 50px;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-decoration: wavy;
+    padding: 0.5em 1.5em;
+    background-color: whitesmoke;
+    background-clip: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ul li a:hover {
+    /* background-color: rgb(0, 252, 213); */
+    text-decoration: wavy;
+    background-image: var(--gradient);
+    background-size: 300%;
+    padding: 0.5em 1.5em;
+    /* opacity: 0.6; */
+    /* color: palevioletred, plum, pink, peachpuff; */
+    color: whitesmoke;
+    height: 30%;
+    width: 50%;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.container .card {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background-image: var(--gradient);
+    background-size: 300%;
+    /* animation: bg-animation 20s infinite alternate; */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px whitesmoke;
+    border-left: 1px whitesmoke;
+    backdrop-filter: blur(5px);
+}
+
+.container .card .content {
+    padding: 20px;
+    text-align: center;
+    transition: 0.5s;
+    /* opacity: 0; */
+    transform: translateY(100px);
+}
+
+.container .card:hover .content {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.container .card:hover {
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.container .card .content h2 {
+    position: absolute;
+    top: -80px;
+    right: 30px;
+    font-size: 8em;
+    color: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.container .card .content h3 {
+    font-size: 1.8em;
+    color: whitesmoke;
+    z-index: 1;
+}
+
+.container .card .content p {
+    font-size: 1em;
+    color: whitesmoke;
+    font-weight: 300;
+}
+
+.container .card .content a {
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    margin-top: 15px;
+    background-image: var(--gradient);
+    background-size: -300%;
+    color: whitesmoke;
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.demo {
+    /* border: solid 1px black; */
+    padding: 10%;
+    align-items: center;
+    margin: 20% 2%;
+    text-transform: uppercase;
+}
+
+.demo h1 {
+    border-bottom: solid 1px black;
+    letter-spacing: 0.4em;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.demo h3 {
+    letter-spacing: 0.2em;
+    text-align: center;
+    word-spacing: 0.5em;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    /* border: solid 2px black; */
+    height: 88%;
+    width: 180vh;
+    grid-gap: 10px;
+    /* margin-top: 7% */
+}
+
+.grid-container .title {
+    font-size: 2em;
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: wavy underline;
+    color: whitesmoke;
+    background-image: var(--gradient);
+    animation: bg-animation 20s infinite alternate-reverse;
+    background-size: 400%;
+    background-blend-mode: darken;
+}
+
+.grid-container .content p {
+    text-align: center;
+    text-decoration: none;
+    color: whitesmoke;
+    backdrop-filter: blur(5px);
+    font-size: 1em;
+    font-weight: 200;
+    background-color: aqua;
+}
+
+
+/* 
+@media only screen and (max-width:60em) {
+    body {
+        padding: 3rem;
+    }
+    .container {
+        grid-gap: 3rem;
+    }
+} */
